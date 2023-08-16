@@ -22,9 +22,9 @@
 >
 **프로젝트:** Smart Communication in ADAS-Equipped Electric Vehicle with CAN and NRF
 >
-**기획 및 제작:** 오승찬,강민성,최원진
+**기획 및 제작:** **오승찬**,강민성,최원진
 >
-**팀 내 역할:** CANFD통신,RF통신,모터제어
+**팀 내 역할:** **CANFD통신,RF통신,모터제어**
 >
 **제작 기간:** 2023.01 ~ 2023.08
 >
