@@ -2,10 +2,10 @@
 
 
 - 📝 [개요](#1introduction)
-- 🛠 [기술 및 도구](#-기술-및-도구)
-- 🔗 [링크](#4.-File-Description)
-- ✨ [업데이트](#-업데이트)
-- 👨🏻‍💻 [기능 구현](#-기능-구현)
+- 🛠 [기술 및 도구](#2overview)
+- 🔗 [링크](#3Requirements)
+- ✨ [업데이트](#4File-Description)
+- 👨🏻‍💻 [기능 구현](#5Contents)
   - [라이트/다크 모드](#1-라이트/다크-모드)
   - [Hash Link](#2-Hash-Link)
   - [반응형 웹](#3-반응형-웹)
@@ -49,5 +49,5 @@
 4) STM32H7A3ZI_3_TX : **라이다값**을 **CANFD통신을 통해 RX보드로 송신**
 5) Raspberry Pi_TX : **차선인식값**을 **CAN통신을 통해 RX보드로 송신**
 
-## 6.Contents
+## 5.Contents
 1) 
