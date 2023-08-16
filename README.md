@@ -3,7 +3,7 @@
 
 - 📝 [개요](#1.Introduction)
 - 🛠 [기술 및 도구](#-기술-및-도구)
-- 🔗 [링크](#-링크)
+- 🔗 [링크](#4.File-Description)
 - ✨ [업데이트](#-업데이트)
 - 👨🏻‍💻 [기능 구현](#-기능-구현)
   - [라이트/다크 모드](#1-라이트/다크-모드)
@@ -20,7 +20,7 @@
 이 Repository 2023년도 1학기에 capstone 수업의 대한 졸업작품입니다.
 우리는 전동자동차에 adas시스템에 들어가는 **실제 차량에 들어가는 센서**와 **유,무선 통신**을 구현해보았습니다.
 
-## 2. Overview
+## 2.Overview
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/2adb81d7-0ad7-4dd9-9e30-1acd12218d63)
 프로젝트에는 크게 4가지로 구성되어있습니다.
 
@@ -31,7 +31,7 @@
 
 **자세한 내용은 Contents를 통해 볼 수 있습니다.**
 
-## 3. Requirements
+## 3.Requirements
 
 본 프로젝트를 위해서는 다음과 같은 것들이 필요합니다.
 
@@ -40,7 +40,7 @@
 3) **nrf통신모듈**
 4) **차선인식**을 위한 카메라
 
-## 4. File Description
+## 4.File Description
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/63862075-ed62-4683-b8c8-1eb82d0f53ff)
 
 1) STM32F411_TX : **엑셀레이터** 및 **핸들**의 값을 보냄
@@ -49,5 +49,5 @@
 4) STM32H7A3ZI_3_TX : **라이다값**을 **CANFD통신을 통해 RX보드로 송신**
 5) Raspberry Pi_TX : **차선인식값**을 **CAN통신을 통해 RX보드로 송신**
 
-## 6. Contents
+## 6.Contents
 1) 
