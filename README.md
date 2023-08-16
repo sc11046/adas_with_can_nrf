@@ -48,10 +48,10 @@
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/63862075-ed62-4683-b8c8-1eb82d0f53ff)
 
 1) STM32F411_TX : **엑셀레이터** 및 **핸들**의 값을 보냄
-2) STM32H7A3ZI_1_RX : TX보드에서 보내는 **센서값과 저항값을 받아 출력**
-3) STM32H7A3ZI_2_TX : 조도센서와 초음파값을 **CANFD통신을 통해 RX보드로 송신**
-4) STM32H7A3ZI_3_TX : **라이다값**을 **CANFD통신을 통해 RX보드로 송신**
-5) Raspberry Pi_TX : **차선인식값**을 **CAN통신을 통해 RX보드로 송신**
+2) STM32H7A3ZI_1_RX : TX보드에서 보내는 **센서값과 저항값**을 받아 출력
+3) STM32H7A3ZI_2_TX : 조도센서와 초음파값을 **CANFD통신**을 통해 RX보드로 송신
+4) STM32H7A3ZI_3_TX : **라이다값**을 **CANFD통신**을 통해 RX보드로 송신
+5) Raspberry Pi_TX : **차선인식값**을 **CAN통신**을 통해 RX보드로 송신
 
 ## 5.Contents
 1) 
