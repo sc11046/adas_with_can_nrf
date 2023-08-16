@@ -1,4 +1,21 @@
 # Smart Communication in ADAS-Equipped Electric Vehicle with CAN and NRF
+
+
+- 📝 [개요](#1.Introduction)
+- 🛠 [기술 및 도구](#-기술-및-도구)
+- 🔗 [링크](#-링크)
+- ✨ [업데이트](#-업데이트)
+- 👨🏻‍💻 [기능 구현](#-기능-구현)
+  - [라이트/다크 모드](#1-라이트/다크-모드)
+  - [Hash Link](#2-Hash-Link)
+  - [반응형 웹](#3-반응형-웹)
+  - [Email 전송](#4-Email-전송)
+  - [Open graph](#5-Open-graph)
+  - [기타](#6-기타-기능)
+- 🚀 [배포](#-배포)
+- ⏰ [커밋 히스토리](#-커밋-히스토리)
+
+
 ## 1.Introduction 
 이 Repository 2023년도 1학기에 capstone 수업의 대한 졸업작품입니다.
 우리는 전동자동차에 adas시스템에 들어가는 **실제 차량에 들어가는 센서**와 **유,무선 통신**을 구현해보았습니다.
