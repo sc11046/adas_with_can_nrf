@@ -39,7 +39,7 @@
 >-
 >- 구매 모듈 : TF-Luna LiDAR
 >- 사용 이유 : 자동차 전방 거리에 따라 모터를 정지시키기 위해 사용
->- ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/718e6018-aab3-4ccd-ab8d-d5c3369b12f3)
+>- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/718e6018-aab3-4ccd-ab8d-d5c3369b12f3" width="200" height="400"/>
 >- 장점 : 거리값이 안정적으로 출력됨
 >
 >- 구매 모듈 : SEN030101
