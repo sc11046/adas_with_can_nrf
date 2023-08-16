@@ -13,7 +13,7 @@
 >- ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/39f7715d-8559-43f6-89a4-96eaed895c99)
 >- 구매보드 : STM32F411
 >- 사용 이유 : 기존 STM보드와 호환성과 작고 배치하기 용이해서 선택
->- ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/04c33751-9119-45b0-8f94-0360321c996d)
+>- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/04c33751-9119-45b0-8f94-0360321c996d" width="300" height="300"/>
 
 ## Networking
 ### Can Networking
@@ -27,19 +27,19 @@
 ### RF Networking
 >- 구매 모듈 : nRF24L01
 >- 사용 이유 : 보드간 무선으로 rf통신을 하기 위해 사용
->- ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/be361729-9dd6-4c46-9e30-8040d94f305a)
+>- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/be361729-9dd6-4c46-9e30-8040d94f305a" width="300" height="300"/>
 >- 장점 : 통신거리가 길고 안정적임
 >- 단점 : 내구성이 약함
 
 ## Sensor
 >- 구매 모듈 : HC-SR04
 >- 사용 이유 : 측방 및 후방 거리에 따라 부저에서 신호를 내기 위해 사용
->- ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/7f8d8425-4d06-49fc-87b4-7475d89f8ab4)
+>- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/7f8d8425-4d06-49fc-87b4-7475d89f8ab4" width="300" height="200"/>
 >- 단점 : 가격이 저렴해서 초음파 값이 갑자기 튀는 현상이 있음
 >-
 >- 구매 모듈 : TF-Luna LiDAR
 >- 사용 이유 : 자동차 전방 거리에 따라 모터를 정지시키기 위해 사용
->- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/718e6018-aab3-4ccd-ab8d-d5c3369b12f3" width="200" height="400"/>
+>- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/718e6018-aab3-4ccd-ab8d-d5c3369b12f3" width="300" height="300"/>
 >- 장점 : 거리값이 안정적으로 출력됨
 >
 >- 구매 모듈 : SEN030101
