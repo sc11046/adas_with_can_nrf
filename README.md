@@ -1,7 +1,7 @@
 # Smart Communication in ADAS-Equipped Electric Vehicle with CAN and NRF
 
 
-- 📝 [개요](#-1.Introduction)
+- 📝 [개요](#1introduction)
 - 🛠 [기술 및 도구](#-기술-및-도구)
 - 🔗 [링크](#4.-File-Description)
 - ✨ [업데이트](#-업데이트)
