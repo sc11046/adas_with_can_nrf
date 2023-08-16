@@ -19,6 +19,17 @@
 ## 1.Introduction 
 이 Repository 2023년도 1학기에 capstone 수업의 대한 졸업작품입니다.
 우리는 전동자동차에 adas시스템에 들어가는 **실제 차량에 들어가는 센서**와 **유,무선 통신**을 구현해보았습니다.
+**프로젝트:** Smart Communication in ADAS-Equipped Electric Vehicle with CAN and NRF
+>
+**기획 및 제작:** 오승찬,강민성,최원진
+>
+**팀 내 역할:** CANFD통신,RF통신,모터제어
+>
+**제작 기간:** 2023.01 ~ 2023.08 
+>
+**주요 기능:** CANFD통신,RF통신,차선인식,모터,라이다,조도,초음파
+>
+**사용 언어:** C,python
 
 ## 2.Overview
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/2adb81d7-0ad7-4dd9-9e30-1acd12218d63)
