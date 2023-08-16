@@ -65,5 +65,5 @@
 
 ### bettery
 >- 사용 배터리 : 12v 9ah 납배터리,12v 7ah 납배터리
->- 사용 이유 : 뒷바퀴에는 배터리소모가 크기때문에 9ah 사용, 앞바퀴에는 7ah
+>- 사용 이유 : 뒷바퀴에는 배터리소모가 크기때문에 9ah 사용, 앞바퀴에는 7ah 사용
 >- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/653243bc-5d9e-4333-aaa3-8a1eed251d09" width="200" height="200"/>
