@@ -54,4 +54,5 @@
 5) Raspberry Pi_TX : **차선인식값**을 **CAN통신**을 통해 RX보드로 송신
 
 ## 5.Contents
-1) 
+0) 개발환경
+1)  
