@@ -1,6 +1,6 @@
 # Rf networking
 ## Overview
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/b1afe897-7b9f-43a9-8f22-9cdf447b4c97)
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/4bae7996-b104-43c5-9c62-4b32cce08fd0)
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/17cafb2a-9fba-4543-b76b-0874108ec1c0)
 
 ## NRF24_init
