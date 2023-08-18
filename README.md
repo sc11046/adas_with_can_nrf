@@ -54,5 +54,5 @@
 5) Raspberry Pi_TX : **차선인식값**을 **CAN통신**을 통해 RX보드로 송신
 
 ## 5.Contents
-0) [개발환경](https://github.com/sc11046/adas_with_can_nrf/blob/main/EnvironmentSetting.md)
+0) [개발환경](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/EnvironmentSetting.md)
 1)  
