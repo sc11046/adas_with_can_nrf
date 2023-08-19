@@ -11,12 +11,16 @@
 
 
 ## 1.Overview
-https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d-8c79-2b98ffebb57f
-
+이 Repository 2023년도 1학기에 capstone 수업의 대한 졸업작품입니다. 
+<br>
+본 프로젝트는 실제 자동차에 쓰이는 필수적인 **Can,Rf통신**과 **센서,차선인식**을 <br>
+전동자동차에 활용하여 효과적으로 쓰이기 위한 방법을 제시하기 위한 목적으로 개발하였습니다. <br>
+<br>
+여러가지 ECU의 역할을 해주는 MCU에 센서를 활용해 유선으로 CAN통신을 하였고 <br>
+카메라부터 취득한 데이터를 인식하고,이를 기반으로 차선의 상태를 CAN통신으로 명령을 보내는 제어 프로그램을 구축했습니다.<br>
+또한 RF모듈을 사용해 MCU간 무선통신을 구축했습니다.
+<br>
 ## 2.Introduction 
-이 Repository 2023년도 1학기에 capstone 수업의 대한 졸업작품입니다.
-우리는 전동자동차에 adas시스템에 들어가는 **실제 차량에 들어가는 센서**와 **유,무선 통신**을 구현해보았습니다.
-
 >
 **프로젝트:** Smart Communication in ADAS-Equipped Electric Vehicle with CAN and NRF
 >
