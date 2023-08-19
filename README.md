@@ -1,14 +1,19 @@
 # Smart Communication in ADAS-Equipped Electric Vehicle with CAN and NRF
 
 
--  [소개](#1introduction)
--  [개요](#2overview)
+
+-  [개요](#1overview)
+-  [소개](#2introduction)
 -  [구상도](#3구상도)
 -  [요구사항](#4requirements)
 -  [파일 설명](#5file-description)
 -  [기능](#6contents)
 
-## 1.Introduction 
+
+## 1.Overview
+https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d-8c79-2b98ffebb57f
+
+## 2.Introduction 
 이 Repository 2023년도 1학기에 capstone 수업의 대한 졸업작품입니다.
 우리는 전동자동차에 adas시스템에 들어가는 **실제 차량에 들어가는 센서**와 **유,무선 통신**을 구현해보았습니다.
 
@@ -24,8 +29,7 @@
 **주요 기능:** CANFD통신,RF통신,차선인식,모터,라이다,조도,초음파
 >
 **사용 언어:** C,python
-## 2.Overview
-https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d-8c79-2b98ffebb57f
+
 ## 3.구상도
 
  ![KakaoTalk_20230819_182954222](https://github.com/qkcvb110/Portfolio/assets/121782690/12019a38-dc8a-4656-ba84-139fd4a13c36)
