@@ -3,13 +3,15 @@
 
 -  [소개](#1introduction)
 -  [개요](#2overview)
--  [요구사항](#3requirements)
--  [파일 설명](#4file-description)
--  [기능](#5contents)
+-  [구상도](#3구상도)
+-  [요구사항](#4requirements)
+-  [파일 설명](#5file-description)
+-  [기능](#6contents)
 
 ## 1.Introduction 
 이 Repository 2023년도 1학기에 capstone 수업의 대한 졸업작품입니다.
 우리는 전동자동차에 adas시스템에 들어가는 **실제 차량에 들어가는 센서**와 **유,무선 통신**을 구현해보았습니다.
+
 >
 **프로젝트:** Smart Communication in ADAS-Equipped Electric Vehicle with CAN and NRF
 >
@@ -27,7 +29,7 @@ https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d
 ## 3.구상도
 
  ![KakaoTalk_20230819_182954222](https://github.com/qkcvb110/Portfolio/assets/121782690/12019a38-dc8a-4656-ba84-139fd4a13c36)
- 
+
  <img src="https://github.com/qkcvb110/Portfolio/assets/121782690/b1a28858-fab1-49f8-bfe5-f44c19cbf8f6" width="800" height="350"/> 
 
 
@@ -39,7 +41,7 @@ https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d
 
 **자세한 내용은 Contents를 통해 볼 수 있습니다.**
 
-## 3.Requirements
+## 4.Requirements
 
 본 프로젝트를 위해서는 다음과 같은 것들이 필요합니다.
 
@@ -48,7 +50,7 @@ https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d
 3) **nrf통신모듈**
 4) **차선인식**을 위한 카메라
 
-## 4.File Description
+## 5.File Description
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/63862075-ed62-4683-b8c8-1eb82d0f53ff)
 
 1) STM32F411_TX : **엑셀레이터** 및 **핸들**의 값을 보냄
@@ -57,7 +59,7 @@ https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d
 4) STM32H7A3ZI_3_TX : **라이다값**을 **CANFD통신**을 통해 RX보드로 송신
 5) Raspberry Pi_TX : **차선인식값**을 **CAN통신**을 통해 RX보드로 송신
 
-## 5.Contents
+## 6.Contents
 0) [개발환경](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/EnvironmentSetting.md)
 1) [Sensors](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Sensors.md)
 2) [Rf Networking](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Rf%20Networking.md)
