@@ -26,7 +26,7 @@
 https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d-8c79-2b98ffebb57f
 ## 3.구상도
 
-<img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fca8f023-8188-4d78-99a7-fe49a4b6bfda" width="1200" height="700"/>
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb21b6c8-0aa3-44a4-aa60-169026b36e59)
 
 
 
