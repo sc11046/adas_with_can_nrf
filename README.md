@@ -22,9 +22,12 @@
 **주요 기능:** CANFD통신,RF통신,차선인식,모터,라이다,조도,초음파
 >
 **사용 언어:** C,python
-
 ## 2.Overview
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/f95d4ae2-f189-4e9c-ab0e-4ee116391ce2)
+https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d-8c79-2b98ffebb57f
+## 3.구상도
+
+<img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fca8f023-8188-4d78-99a7-fe49a4b6bfda" width="1200" height="700"/>
+
 
 
 프로젝트에는 크게 4가지로 구성되어있습니다.
