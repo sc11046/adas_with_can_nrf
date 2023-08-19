@@ -21,5 +21,5 @@ Can,CanFD Networking이란? <br>고속 데이터 전송과 유연성을 제공�
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/e207109e-1e66-4549-8c14-1447e6517dea)
 
 ## Flow Chart
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/5ecc1788-778e-4ed7-b5c7-88c976979803)
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/0af19bfe-00f9-433a-9432-c4b7cbd12481)
 
