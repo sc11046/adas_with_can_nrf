@@ -26,8 +26,9 @@
 https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d-8c79-2b98ffebb57f
 ## 3.구상도
 
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb21b6c8-0aa3-44a4-aa60-169026b36e59)
-
+ ![KakaoTalk_20230819_182954222](https://github.com/qkcvb110/Portfolio/assets/121782690/12019a38-dc8a-4656-ba84-139fd4a13c36)
+ 
+ <img src="https://github.com/qkcvb110/Portfolio/assets/121782690/b1a28858-fab1-49f8-bfe5-f44c19cbf8f6" width="800" height="350"/> 
 
 
 프로젝트에는 크게 4가지로 구성되어있습니다.
