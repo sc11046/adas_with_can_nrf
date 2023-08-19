@@ -18,7 +18,7 @@ Rf Networking이란?  라디오 주파수를 사용해 네트워크를 구축하
 
 ## NRF24_init
 
-```
+```c
 void NRF24_Init (void)
 {
 	// disable the chip before configuring the device
@@ -52,14 +52,84 @@ void NRF24_Init (void)
 >- 5byes의 데이터 크기와 2Mbps로 속도를 설정했다
 
 ## 데이터 주소값 설정
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/17d38788-42e7-4767-b12b-b93272dd2c09)
+```c
+uint8_t TxAddress[] = {0xEE,0xDD,0xCC,0xBB,0xAA};
+```
+
+```c
+uint8_t RxAddress[] = {0x00,0xDD,0xCC,0xBB,0xAA};
+```
 
 위 코드는 **adrress의 주소값**을 서로 맞춰주는 코드이다
 
 ## 레지스터 및 모드 설정
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/58cd5544-a15a-427b-b75f-3a605dc6d380)
 
->- 위 코드는 각 tx모드,rx모드의 설정이다
+````c
+void NRF24_TxMode (uint8_t *Address, uint8_t channel)
+{
+	// disable the chip before configuring the device
+	CE_Disable();
+
+	nrf24_WriteReg (RF_CH, channel);  // select the channel
+
+	nrf24_WriteRegMulti(TX_ADDR, Address, 5);  // Write the TX address
+
+
+	// power up the device
+	uint8_t config = nrf24_ReadReg(CONFIG);
+	config = config | (1<<1);   // write 1 in the PWR_UP bit
+//	config = config & (0xF2);    // write 0 in the PRIM_RX, and 1 in the PWR_UP, and all other bits are masked
+	nrf24_WriteReg (CONFIG, config);
+
+	// Enable the chip after configuring the device
+	CE_Enable();
+}
+````
+
+```c
+void NRF24_RxMode (uint8_t *Address, uint8_t channel)
+{
+	// disable the chip before configuring the device
+	CE_Disable();
+
+	nrf24_reset (STATUS);
+
+	nrf24_WriteReg (RF_CH, channel);  // select the channel
+
+	// select data pipe 2
+	uint8_t en_rxaddr = nrf24_ReadReg(EN_RXADDR);
+	en_rxaddr = en_rxaddr | (1<<2);
+	nrf24_WriteReg (EN_RXADDR, en_rxaddr);
+
+	/* We must write the address for Data Pipe 1, if we want to use any pipe from 2 to 5
+	 * The Address from DATA Pipe 2 to Data Pipe 5 differs only in the LSB
+	 * Their 4 MSB Bytes will still be same as Data Pipe 1
+	 *
+	 * For Eg->
+	 * Pipe 1 ADDR = 0xAABBCCDD11
+	 * Pipe 2 ADDR = 0xAABBCCDD22
+	 * Pipe 3 ADDR = 0xAABBCCDD33
+	 *
+	 */
+	nrf24_WriteRegMulti(RX_ADDR_P1, Address, 5);  // Write the Pipe1 address
+	nrf24_WriteReg(RX_ADDR_P2, 0xEE);  // Write the Pipe2 LSB address
+
+	nrf24_WriteReg (RX_PW_P2, 32);   // 32 bit payload size for pipe 2
+
+
+	// power up the device in Rx mode
+	uint8_t config = nrf24_ReadReg(CONFIG);
+	config = config | (1<<1) | (1<<0);
+	nrf24_WriteReg (CONFIG, config);
+
+	// Enable the chip after configuring the device
+	CE_Enable();
+}
+```
+
+
+
+>- 코드는 각 tx모드,rx모드의 설정이다
 >- tx모드 : 주어진 주소와 채널을 사용하여 모듈을 설정하고 송신 기능을 활성화시킨다
 
 >- rx모드 : 레지스터의 상태를 초기화 시킨 후 채널을 설정한다
@@ -67,7 +137,70 @@ void NRF24_Init (void)
 >- 수신 기능을 활성화시켜 수신 받을 준비를 완료한다
 
 ## fifo 버퍼 데이터 초기화 및 송,수신함수
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/f48f02ea-040f-418e-b860-ae3e2a0a170c)
+```c
+uint8_t NRF24_Transmit (uint8_t *data)
+{
+	uint8_t cmdtosend = 0;
+
+	// select the device
+	CS_Select();
+
+	// payload command
+	cmdtosend = W_TX_PAYLOAD;
+	HAL_SPI_Transmit(NRF24_SPI, &cmdtosend, 1, 100);
+
+	// send the payload
+	HAL_SPI_Transmit(NRF24_SPI, data,32, 1000);
+//	HAL_SPI_Transmit(NRF24_SPI, data, sizeof(data), 1000);
+	// Unselect the device
+	CS_UnSelect();
+
+	HAL_Delay(1);
+
+	uint8_t fifostatus = nrf24_ReadReg(FIFO_STATUS);
+
+	// check the fourth bit of FIFO_STATUS to know if the TX fifo is empty
+	if ((fifostatus&(1<<4)) && (!(fifostatus&(1<<3))))
+	{
+		cmdtosend = FLUSH_TX;
+		nrfsendCmd(cmdtosend);
+
+		// reset FIFO_STATUS
+		nrf24_reset (FIFO_STATUS);
+
+		return 1;
+	}
+
+	return 0;
+}
+```
+
+```c
+void NRF24_Receive (uint8_t *data)
+{
+	uint8_t cmdtosend = 0;
+
+	// select the device
+	CS_Select();
+
+	// payload command
+	cmdtosend = R_RX_PAYLOAD;
+	HAL_SPI_Transmit(NRF24_SPI, &cmdtosend, 1, 100);
+
+	// Receive the payload
+	HAL_SPI_Receive(NRF24_SPI, data, 32, 1000);
+
+	// Unselect the device
+	CS_UnSelect();
+
+	HAL_Delay(1);
+
+	cmdtosend = FLUSH_RX;
+	nrfsendCmd(cmdtosend);
+}
+```
+
+
 
 >- **최초 1회는 fifo가 비워져 있는 상태이므로 초기화 되지않고 넘어간다**
 
@@ -82,9 +215,30 @@ void NRF24_Init (void)
 >- 이후  cmdtosend = FLUSH_TX로 fifo를 비운다
 
 ## 송신 수신 과정
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/607fcdb7-3bbd-4dff-ab2c-dd96da9688cf)
+```
+	      if (NRF24_Transmit(TxData) == 1)
+	  	  {
+	  		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	  		  HAL_Delay(100);
+	  	  }
+	      HAL_Delay(10);
+```
+
+
+
+```
+          if (isDataAvailable(2) == 1)
+          {
+              NRF24_Receive(RxData);
+          }
+```
+
+
+
+
 
 >- tx : "if (NRF24_Transmit(TxData) == 1)"를 while안에 배치시켜 지속적으로 송신하게끔 설정했다
+>- 송신 성공시 보드에 내장된 LED에 불을 0.1초간격으로 깜빡거리게 설정했다
 >- 리턴 값을 이용해 1이 되었을 때 송신하게끔 설정했다
 
 >- rx : "if (isDataAvailable(2) == 1)
