@@ -24,7 +24,8 @@
 **사용 언어:** C,python
 
 ## 2.Overview
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/66c8022a-a907-4ebd-b4aa-503b802e46cc)
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/f95d4ae2-f189-4e9c-ab0e-4ee116391ce2)
+
 
 프로젝트에는 크게 4가지로 구성되어있습니다.
 1) stm32f411송신부에서 **핸들** 및 엑셀레이터의 저항값을 rf통신을 이용해 **원격으로 수신부로 전송**합니다.
