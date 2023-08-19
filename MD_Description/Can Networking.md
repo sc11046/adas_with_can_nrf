@@ -31,7 +31,7 @@ Can,CanFD Networking이란? <br>고속 데이터 전송과 유연성을 제공�
 
 모든 ECU들을 통신하기 위해서는 각 ECU들의 클럭 속도를 맞추는게 중요하다<br>계산방법은 아래와같다.<br>
 
-APB1 clock = 4MHz<br>Prescaler = 1<br>4MHz / 1 = 4MHz8MHz → 1초에 4000000 bit가 뛴다.<br>제일 작은 단위. 한 clock의 시간을 계산하려면 역으로 뒤집으면 된다.<br>1타임 퀀텀의 시간 단위 = 1 / 4MHz =0.25us<br>SYNC_SEG → 1 타임 퀀텀 사용 (고정)<br>BIT SEGMENT 1 (BS1) → 5 타임 퀀텀 배정<br>BIT SEGMENT 2 (BS2) → 2 타임 퀀텀 배정<br>SYNC_SEG + BS1 + BS2 = 총 8개 타임 퀀텀. 1 타임 퀀텀 당 0.25us<br>total quantum → 0.25us * 8 = 2us (1 clock (bit) 뛰는데 들어가는 시간)<br>해당 값의 (2us) 속도를 계산하려면 뒤집어야 한다.<br>따라서 **1 bit 당 2us 소요** (500kbps → 초당 500k bit)<br>SAMPLE POINT*= (SYNC_SEG + BS1) / 전체 타임 퀀텀 = (1 + 5) / 8 = **75%<br>**BaudRate (통신속도) = **500kbps**<br>
+APB1 clock = 4MHz<br>Prescaler = 1<br>4MHz / 1 = 4MHz8MHz → 1초에 4000000 bit가 뛴다.<br>제일 작은 단위. 한 clock의 시간을 계산하려면 역으로 뒤집으면 된다.<br>1타임 퀀텀의 시간 단위 = 1 / 4MHz =0.25us<br>SYNC_SEG → 1 타임 퀀텀 사용 (고정)<br>BIT SEGMENT 1 (BS1) → 5 타임 퀀텀 배정<br>BIT SEGMENT 2 (BS2) → 2 타임 퀀텀 배정<br>SYNC_SEG + BS1 + BS2 = 총 8개 타임 퀀텀. 1 타임 퀀텀 당 0.25us<br>total quantum → 0.25us * 8 = 2us (1 clock (bit) 뛰는데 들어가는 시간)<br>해당 값의 (2us) 속도를 계산하려면 뒤집어야 한다.<br>따라서 **1 bit 당 2us 소요** (500kbps → 초당 500k bit)<br>SAMPLE POINT*= (SYNC_SEG + BS1) / 전체 타임 퀀텀 = (1 + 5) / 8 =75% <br>BaudRate (통신속도) = **500kbps**<br>
 
 ```c
   static void MX_FDCAN1_Init(void){
@@ -55,7 +55,7 @@ APB1 clock = 4MHz<br>Prescaler = 1<br>4MHz / 1 = 4MHz8MHz → 1초에 4000000 bi
 위의 코드는 stm보드의 공통된 통신속도를 위한 설정이다
 
 ```python
-sudo ip link set can0 type can bitrate 500000
+sudo ip link set can0 type can bitrate 4000000
 sudo ip link set up can0
 ```
 
