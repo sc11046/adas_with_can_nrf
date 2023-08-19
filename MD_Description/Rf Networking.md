@@ -1,5 +1,18 @@
-# Rf networking
+# Rf Networking
+
 ## Overview
+
+Rf Networking이란?  라디오 주파수를 사용해 네트워크를 구축하는 것
+
+사용 배경 : 처음에는 블루투스를 이용해 사용해봤으나 통신 속도 및 통신 거리가 너무 약해 RF 통신을 사용하게 되었다
+
+사용 이유 : 무선 네트워킹을 사용하고싶었고 안정적인 신호 전달을 위해서 사용하였다
+
+사용 모듈 : nRF24L01
+
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/a0c50c7d-8a97-40db-b810-52ee3818ed14)
+
+## Flow Chart
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/e61b41f0-ca0e-4b92-82f7-91e78e73f6d7)
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/17cafb2a-9fba-4543-b76b-0874108ec1c0)
 

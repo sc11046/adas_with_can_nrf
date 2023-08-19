@@ -22,7 +22,6 @@
 **주요 기능:** CANFD통신,RF통신,차선인식,모터,라이다,조도,초음파
 >
 **사용 언어:** C,python
->
 
 ## 2.Overview
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/66c8022a-a907-4ebd-b4aa-503b802e46cc)
@@ -57,15 +56,11 @@
 0) [개발환경](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/EnvironmentSetting.md)
 1) [Sensors](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Sensors.md)
 2) [Rf Networking](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Rf%20Networking.md)
+3) [Can Networking]
+4) [Motor Control]
+5) [[Lane Keeping Assist]
 
 
 
 
 
-
-
-# 안녕
-
-## 안녕녕
-
-### 아년연여녕ㄴ
