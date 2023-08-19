@@ -17,7 +17,36 @@ Rf Networking이란?  라디오 주파수를 사용해 네트워크를 구축하
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/17cafb2a-9fba-4543-b76b-0874108ec1c0)
 
 ## NRF24_init
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/d2a28c50-753c-4cd9-ae07-682b0b0665c2)
+
+```
+void NRF24_Init (void)
+{
+	// disable the chip before configuring the device
+	CE_Disable();
+
+
+	// reset everything
+	nrf24_reset (0);
+	
+	nrf24_WriteReg(CONFIG, 0);  // will be configured later
+	
+	nrf24_WriteReg(EN_AA, 0);  // No Auto ACK
+	
+	nrf24_WriteReg (EN_RXADDR, 0);  // Not Enabling any data pipe right now
+	
+	nrf24_WriteReg (SETUP_AW, 0x03);  // 5 Bytes for the TX/RX address
+	
+	nrf24_WriteReg (SETUP_RETR, 0);   // No retransmission
+	
+	nrf24_WriteReg (RF_CH, 0);  // will be setup during Tx or RX
+	
+	nrf24_WriteReg (RF_SETUP, 0x0E);   // Power= 0db, data rate = 2Mbps
+	
+	// Enable the chip after configuring the device
+	CE_Enable();
+
+}
+```
 
 >- 위 코드는 nrf모듈을 초기화를 시킨후 tx/rx address,데이터크기,ack모드,데이터 속도 등 레지스터 값을 설정하는 코드 이다
 >- 5byes의 데이터 크기와 2Mbps로 속도를 설정했다
@@ -78,7 +107,7 @@ void nrf24_reset(uint8_t REG)
 	{
 		nrf24_WriteReg(FIFO_STATUS, 0x11);
 	}
-
+	
 	else {
 	nrf24_WriteReg(CONFIG, 0x08);
 	nrf24_WriteReg(EN_AA, 0x3F);
