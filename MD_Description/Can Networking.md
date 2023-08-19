@@ -21,7 +21,7 @@ Can,CanFD Networking이란? <br>고속 데이터 전송과 유연성을 제공�
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/e207109e-1e66-4549-8c14-1447e6517dea)
 
 ## Flow Chart
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/0af19bfe-00f9-433a-9432-c4b7cbd12481)
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/1b9c5a67-1c2b-41f7-a7f8-b4ad552efe6c)
 
 ## Initialize
 
@@ -68,6 +68,9 @@ sudo ip link set up can0
 ### 초음파,조도센서 ECU
 
 ```c
+  FDCAN_TxHeaderTypeDef TxHeader;
+  uint8_t TxData_Node3_To_Node2[16];  
+
   hfdcan1.Init.TxFifoQueueElmtsNbr = 1;
   hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
   hfdcan1.Init.TxElmtSize = FDCAN_DATA_BYTES_16;
@@ -76,11 +79,13 @@ sudo ip link set up can0
   TxHeader.DataLength = FDCAN_DLC_BYTES_16;
 ```
 
-데이터의 길이는 16bytes,헤더ID는 0x33으로 사용한다<br>
+데이터의 길이는 16bytes, 헤더ID는 0x33으로 사용한다<br>
 
 ### 라이다 센서 ECU
 
 ```
+  FDCAN_TxHeaderTypeDef TxHeader;
+  uint8_t TxData_Node1_To_Node3[16];
   hfdcan1.Init.TxFifoQueueElmtsNbr = 1;
   hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
   hfdcan1.Init.TxElmtSize = FDCAN_DATA_BYTES_16;
@@ -94,12 +99,32 @@ sudo ip link set up can0
 ### 차선 인식 ECU
 
 ```python
+ bus = can.Bus(interface='socketcan',
+              channel='can0',
+              receive_own_messages=True)
+    
  message = can.Message(arbitration_id=0x44, is_extended_id=False,data=[0x52])
 ```
 
 위에 코드는 헤더ID는 0x44로 사용하고 데이터는 0x52로  'R'를 전송한다
 
 ### 송신부
+
+```c
+#include "main.h"
+
+
+FDCAN_FilterTypeDef sFilterConfig;
+FDCAN_FilterTypeDef sFilterConfig1;
+FDCAN_FilterTypeDef sFilterConfig2;
+FDCAN_RxHeaderTypeDef RxHeader;
+
+uint8_t RxData_From_Node3[16];
+uint8_t RxData_From_Node1[16];
+uint8_t RxData_From_Node4[8];
+```
+
+
 
 ```
   hfdcan1.Init.StdFiltersNbr = 3;
@@ -146,5 +171,106 @@ sudo ip link set up can0
                }
 ```
 
-위의 코드는 송신부 데이터 설정 코드로 <br>송신부에선 3개의 ECU에서 데이터를 받으므로 fifi0,fifo1,buffer를 사용하도록 구성했다.<br>총 세개의 필터를 만들었고 각각 0x11,0x33,0x44로 필터링되도록 사용했다.<br>
+위 코드는 송신부 데이터 설정 코드로 <br>송신부에선 3개의 ECU에서 데이터를 받으므로 fifi0,fifo1,buffer를 사용하도록 구성했다.<br>총 세개의 필터를 만들었고 각각 0x11,0x33,0x44로 필터링되도록 사용했다.<br>
 
+## 데이터 송신
+
+### 초음파,조도센서 ECU
+
+```
+	  	if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData_Node3_To_Node2)!= HAL_OK)
+            {
+                 Error_Handler();
+            }
+```
+
+위 코드에서 "txHeader"구조체를 통해 메시지 헤더 정보를 설정하고, "TxData_Node3_To_Node2" 배열을 통해 전송할 데이터를 준비합니다. <br>"HAL_FDCAN_AddMessageToTxFifoQ "함수를 호출하여 메시지를 송신 FIFO 큐에 추가하여 전송합니다.
+
+### 라이다 센서 ECU
+
+```
+  	  	if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData_Node1_To_Node3)!= HAL_OK)
+  	  		{
+  	  		     Error_Handler();
+  	  		}
+```
+
+위 코드에서 "txHeader"구조체를 통해 메시지 헤더 정보를 설정하고, "TxData_Node1_To_Node2" 배열을 통해 전송할 데이터를 준비합니다. <br>"HAL_FDCAN_AddMessageToTxFifoQ "함수를 호출하여 메시지를 송신 FIFO 큐에 추가하여 전송합니다.
+
+### 차선인식 ECU
+
+```
+         message = can.Message(arbitration_id=0x44, is_extended_id=False,data=[0x52])
+         bus.send(message, timeout=0.2
+```
+
+위 코드는 11비트 Arbitration ID가 0x44인 메시지를 생성하고, 데이터 부분에 0x52 값을 포함하여 해당 메시지를 송신한다
+
+## 데이터 수신
+
+### ActivateNotification
+
+            if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_BUFFER_NEW_MESSAGE, 0) != HAL_OK)
+              {
+                /* Notification Error */
+                Error_Handler();
+              }
+            if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK)
+              {
+                Error_Handler();
+              }
+            if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO1_NEW_MESSAGE, 0) != HAL_OK)
+              {
+                Error_Handler();
+              }
+
+이 함수는 FIFO1에 새로운 메시지가 도착했을 때 인터럽트를 활성화한다.<br> FIFO0, FIFO1,Buffer에 새 메시지가 도착했을 때, 설정된 인터럽트 핸들러가 호출된다.<br>각 호출에서 `HAL_OK`가 반환되지 않을 경우, 에러 핸들러(`Error_Handler()`)가 호출된다.<br>수신 버퍼 및 FIFO에서 새 메시지가 도착했을 때 적절한 동작을 수행하기 위해 인터럽트를 활성화하고, <br>활성화 과정에서 오류가 발생하면 에러 처리를 수행하는 부분이다.<br>
+
+### CallBack
+
+```
+void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
+{
+   if(FDCAN1 == hfdcan->Instance)
+   {
+	  if((RxFifo0ITs & FDCAN_IT_RX_FIFO0_NEW_MESSAGE) != RESET)
+	  {
+
+		if (HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader, RxData_From_Node3) != HAL_OK)
+		{
+		Error_Handler();
+		}
+
+	  }
+   }
+
+ }//choumpa jodo
+void HAL_FDCAN_RxFifo1Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo1ITs)
+{
+   if(FDCAN1 == hfdcan->Instance)
+   {
+	  if((RxFifo1ITs & FDCAN_IT_RX_FIFO1_NEW_MESSAGE) != RESET)
+	  {
+		if (HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO1, &RxHeader, RxData_From_Node1) != HAL_OK)
+		{
+		Error_Handler();
+		}
+
+	  }
+   }
+ }//rider
+void HAL_FDCAN_RxBufferNewMessageCallback(FDCAN_HandleTypeDef *hfdcan)
+{
+
+    if (FDCAN1 == hfdcan->Instance)
+    {
+        if (HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_BUFFER0, &RxHeader, RxData_From_Node4) != HAL_OK)
+        {
+            Error_Handler();
+        }
+    }
+
+}//raspi
+```
+
+각 핸들러는 수신된 메시지를 읽어 `RxHeader` 변수에 메시지 헤더 정보를 저장하고, 데이터를 `RxData_From_NodeX` 배열에 저장한다. <br>만약 메시지 읽기에 실패하면 `Error_Handler()` 함수를 호출하여 오류 처리를 수행한다.<br>이렇게 정의된 핸들러들은 위에서 설명한대로 `HAL_FDCAN_ActivateNotification` 함수를 통해 활성화되며,<br>새로운 메시지 도착 시에 인터럽트가 발생하여 호출된다.<br>우선순위는 fifio>buffer 순이다.
