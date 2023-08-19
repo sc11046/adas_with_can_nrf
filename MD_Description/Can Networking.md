@@ -274,3 +274,9 @@ void HAL_FDCAN_RxBufferNewMessageCallback(FDCAN_HandleTypeDef *hfdcan)
 ```
 
 각 핸들러는 수신된 메시지를 읽어 `RxHeader` 변수에 메시지 헤더 정보를 저장하고, 데이터를 `RxData_From_NodeX` 배열에 저장한다. <br>만약 메시지 읽기에 실패하면 `Error_Handler()` 함수를 호출하여 오류 처리를 수행한다.<br>이렇게 정의된 핸들러들은 위에서 설명한대로 `HAL_FDCAN_ActivateNotification` 함수를 통해 활성화되며,<br>새로운 메시지 도착 시에 인터럽트가 발생하여 호출된다.<br>우선순위는 fifio>buffer 순이다.
+
+## 통신 테스트
+
+1:3 통신 테스트 동영상 
+
+live expreession 영상 
