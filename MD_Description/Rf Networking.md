@@ -6,7 +6,7 @@ Rf Networking이란?  라디오 주파수를 사용해 네트워크를 구축하
 
 사용 배경 : 처음에는 블루투스를 이용해 사용해봤으나 통신 속도 및 통신 거리가 너무 약해 RF 통신을 사용하게 되었다
 
-사용 이유 : 무선 네트워킹을 사용하고싶었고 안정적인 신호 전달을 위해서 사용하였다
+사용 이유 : 무선 네트워킹을 사용하고 싶었고 안정적인 신호 전달을 위해서 사용하였다
 
 사용 모듈 : nRF24L01
 
@@ -246,51 +246,6 @@ void NRF24_Receive (uint8_t *data)
 >- 파이프데이터 2번안에 데이터가 수신되었을때  NRF24_Receive(RxData)가 동작되게 설정했다
 
 ## 테스트 영상
-![NRF영상_AdobeExpress_AdobeExpress](https://github.com/crasdok/capstone/assets/118472691/0e8da015-865e-457a-8531-79db8783a3ea)
+(여기에 수요일날 올릴 LIVE EXPRESSION 추가)
 
 >- 데이터 값에 핸들과 엑셀레이터 가변저항값을 전송시켜 무선으로 통신이 되도록 만들었다
-
-void nrf24_reset(uint8_t REG)
-{
-	if (REG == STATUS)
-	{
-		nrf24_WriteReg(STATUS, 0x00);
-	}
-
-	else if (REG == FIFO_STATUS)
-	{
-		nrf24_WriteReg(FIFO_STATUS, 0x11);
-	}
-	
-	else {
-	nrf24_WriteReg(CONFIG, 0x08);
-	nrf24_WriteReg(EN_AA, 0x3F);
-	nrf24_WriteReg(EN_RXADDR, 0x03);
-	nrf24_WriteReg(SETUP_AW, 0x03);
-	nrf24_WriteReg(SETUP_RETR, 0x03);
-	nrf24_WriteReg(RF_CH, 0x02);
-	nrf24_WriteReg(RF_SETUP, 0x0E);
-	nrf24_WriteReg(STATUS, 0x00);
-	nrf24_WriteReg(OBSERVE_TX, 0x00);
-	nrf24_WriteReg(CD, 0x00);
-	uint8_t rx_addr_p0_def[5] = {0xE7, 0xE7, 0xE7, 0xE7, 0xE7};
-	nrf24_WriteRegMulti(RX_ADDR_P0, rx_addr_p0_def, 5);
-	uint8_t rx_addr_p1_def[5] = {0xC2, 0xC2, 0xC2, 0xC2, 0xC2};
-	nrf24_WriteRegMulti(RX_ADDR_P1, rx_addr_p1_def, 5);
-	nrf24_WriteReg(RX_ADDR_P2, 0xC3);
-	nrf24_WriteReg(RX_ADDR_P3, 0xC4);
-	nrf24_WriteReg(RX_ADDR_P4, 0xC5);
-	nrf24_WriteReg(RX_ADDR_P5, 0xC6);
-	uint8_t tx_addr_def[5] = {0xE7, 0xE7, 0xE7, 0xE7, 0xE7};
-	nrf24_WriteRegMulti(TX_ADDR, tx_addr_def, 5);
-	nrf24_WriteReg(RX_PW_P0, 0);
-	nrf24_WriteReg(RX_PW_P1, 0);
-	nrf24_WriteReg(RX_PW_P2, 0);
-	nrf24_WriteReg(RX_PW_P3, 0);
-	nrf24_WriteReg(RX_PW_P4, 0);
-	nrf24_WriteReg(RX_PW_P5, 0);
-	nrf24_WriteReg(FIFO_STATUS, 0x11);
-	nrf24_WriteReg(DYNPD, 0);
-	nrf24_WriteReg(FEATURE, 0);
-	}
-}
