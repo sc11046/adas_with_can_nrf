@@ -63,7 +63,7 @@ uint8_t RxAddress[] = {0x00,0xDD,0xCC,0xBB,0xAA};
 위 코드는 **adrress의 주소값**을 서로 맞춰주는 코드이다
 
 ## 레지스터 및 모드 설정
-
+ 아래 코드는 각 tx모드,rx모드의 설정이다
 ````c
 void NRF24_TxMode (uint8_t *Address, uint8_t channel)
 {
@@ -85,7 +85,7 @@ void NRF24_TxMode (uint8_t *Address, uint8_t channel)
 	CE_Enable();
 }
 ````
-
+>- tx모드 : 주어진 주소와 채널을 사용하여 모듈을 설정하고 송신 기능을 활성화시킨다
 ```c
 void NRF24_RxMode (uint8_t *Address, uint8_t channel)
 {
@@ -127,16 +127,13 @@ void NRF24_RxMode (uint8_t *Address, uint8_t channel)
 }
 ```
 
-
-
->- 코드는 각 tx모드,rx모드의 설정이다
->- tx모드 : 주어진 주소와 채널을 사용하여 모듈을 설정하고 송신 기능을 활성화시킨다
-
 >- rx모드 : 레지스터의 상태를 초기화 시킨 후 채널을 설정한다
 >- 이후 rx주소를 설정하고 모듈의 데이터를 파이프 2번에 수신되도록 설정한다
 >- 수신 기능을 활성화시켜 수신 받을 준비를 완료한다
 
 ## fifo 버퍼 데이터 초기화 및 송,수신함수
+>- **최초 1회는 fifo가 비워져 있는 상태이므로 초기화 되지않고 넘어간다**
+>- 아래 코드는 버퍼데이터 초기화가 포함된 코드이다
 ```c
 uint8_t NRF24_Transmit (uint8_t *data)
 {
@@ -174,7 +171,9 @@ uint8_t NRF24_Transmit (uint8_t *data)
 	return 0;
 }
 ```
-
+>- NRF24_Transmit : 초기값을 0으로 설정하고 HAL_SPI_Transmit함수를 호출해 nrf모듈에 32바이트의 데이터를 송신한다
+>- fifostatus를 확인해 tx fifo가 비어져있는지 확인하고 cmdtosend = FLUSH_TX로 fifo를 비운다
+>- 이후 리셋을 활용해 fifo를 초기화 시키고 return 1,0을 사용해 송신이 되면 1 안되면 0을 리턴한다
 ```c
 void NRF24_Receive (uint8_t *data)
 {
@@ -199,16 +198,6 @@ void NRF24_Receive (uint8_t *data)
 	nrfsendCmd(cmdtosend);
 }
 ```
-
-
-
->- **최초 1회는 fifo가 비워져 있는 상태이므로 초기화 되지않고 넘어간다**
-
->- 위 코드는 버퍼데이터 초기화가 포함된 코드이다
->- NRF24_Transmit : 초기값을 0으로 설정하고 HAL_SPI_Transmit함수를 호출해 nrf모듈에 32바이트의 데이터를 송신한다
->- fifostatus를 확인해 tx fifo가 비어져있는지 확인하고 cmdtosend = FLUSH_TX로 fifo를 비운다
->- 이후 리셋을 활용해 fifo를 초기화 시키고 return 1,0을 사용해 송신이 되면 1 안되면 0을 리턴한다
-
 >- NRF24_Receive : 초기값을 0으로 설정하고 cs를 활성화 시킨다
 >- 수신된 페이로드 데이터를 읽고 HAL_SPI_Transmit함수를 호출한다
 >- 32바이트의 데이터를 "data" 배열로 받아온다 딜레이를 넣어주어 완료를 기다리게 세팅한다
@@ -223,8 +212,9 @@ void NRF24_Receive (uint8_t *data)
 	  	  }
 	      HAL_Delay(10);
 ```
-
-
+>- tx : "if (NRF24_Transmit(TxData) == 1)"를 while안에 배치시켜 지속적으로 송신하게끔 설정했다
+>- 송신 성공시 보드에 내장된 LED에 불을 0.1초간격으로 깜빡거리게 설정했다
+>- 리턴 값을 이용해 1이 되었을 때 송신하게끔 설정했다
 
 ```
           if (isDataAvailable(2) == 1)
@@ -232,15 +222,6 @@ void NRF24_Receive (uint8_t *data)
               NRF24_Receive(RxData);
           }
 ```
-
-
-
-
-
->- tx : "if (NRF24_Transmit(TxData) == 1)"를 while안에 배치시켜 지속적으로 송신하게끔 설정했다
->- 송신 성공시 보드에 내장된 LED에 불을 0.1초간격으로 깜빡거리게 설정했다
->- 리턴 값을 이용해 1이 되었을 때 송신하게끔 설정했다
-
 >- rx : "if (isDataAvailable(2) == 1)
 >  {NRF24_Receive(RxData)}"를 while안에 배치시켜 지속적으로 수신하게끔 설정했다
 >- 파이프데이터 2번안에 데이터가 수신되었을때  NRF24_Receive(RxData)가 동작되게 설정했다
