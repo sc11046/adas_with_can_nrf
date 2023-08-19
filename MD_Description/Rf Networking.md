@@ -1,6 +1,6 @@
 # Rf networking
 ## Overview
-![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/4bae7996-b104-43c5-9c62-4b32cce08fd0)
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/e61b41f0-ca0e-4b92-82f7-91e78e73f6d7)
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/17cafb2a-9fba-4543-b76b-0874108ec1c0)
 
 ## NRF24_init
@@ -28,7 +28,7 @@
 ![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/f48f02ea-040f-418e-b860-ae3e2a0a170c)
 
 >- **최초 1회는 fifo가 비워져 있는 상태이므로 초기화 되지않고 넘어간다**
- 
+
 >- 위 코드는 버퍼데이터 초기화가 포함된 코드이다
 >- NRF24_Transmit : 초기값을 0으로 설정하고 HAL_SPI_Transmit함수를 호출해 nrf모듈에 32바이트의 데이터를 송신한다
 >- fifostatus를 확인해 tx fifo가 비어져있는지 확인하고 cmdtosend = FLUSH_TX로 fifo를 비운다
