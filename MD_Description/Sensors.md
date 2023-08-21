@@ -4,5 +4,4 @@
 -  [HC-SR04](#2overview)
 -  [SEN030101](#3Requirements)
 ## TF-Luna LiDAR
->- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/fb5f6525-d090-4d8d-8c79-2b98ffebb57f" width="300" height="200"/>
->- 
+ 
