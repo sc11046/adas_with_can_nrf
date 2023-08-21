@@ -108,7 +108,7 @@ sudo ip link set up can0
 
 위에 코드는 헤더ID는 0x44로 사용하고 데이터는 0x52로  'R'를 전송한다
 
-### 송신부
+### 수신부
 
 ```c
 #include "main.h"
