@@ -72,7 +72,7 @@
 1) [Sensors](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Sensors.md)
 2) [Rf Networking](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Rf%20Networking.md)
 3) [Can Networking](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Can%20Networking.md)
-4) [Motor Control]
+4) [Motor Control](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Motor%20Control.md)
 5) [[Lane Keeping Assist]
 
 
