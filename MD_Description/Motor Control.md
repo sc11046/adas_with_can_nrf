@@ -16,3 +16,4 @@
 
 ## Flow Chart
 
+![KakaoTalk_20230821_223311406](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/0034f505-db18-4bf8-bcbc-024101b9b17a)
