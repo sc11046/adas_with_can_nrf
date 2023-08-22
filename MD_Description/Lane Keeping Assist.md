@@ -6,6 +6,10 @@
 
 뭐 카메라랑 보드~ 모듈 등등 이유 사용한 이유 솰라솰라
 
+우리 차선인식 되는 영상 
+
+
+
 ## 블럭도
 
 <img width="70%" src="https://github.com/crasdok/capstone/assets/118472691/dbffaf9c-016d-4d24-91bf-44b46e3e6d16"/>
