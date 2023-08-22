@@ -161,7 +161,7 @@ nrf 모터 통신 연결이랑 , 앞바퀴 이용한 전후진
 
 ### rpi_motor
 
-```
+```c
 void rpi_motor (void){
 	  if(RxData[3]==1)
 	  {
@@ -227,5 +227,25 @@ l,r지속적으로 오는거 올리고 라이브
 
 인식하는거에 맞춰 방향 돌아가는거 
 
+### Lidar
+```c
+void Lidar (void){
 
+
+	  for(int j=0;j<3;j++)
+	  {b[j]=RxData_From_Node1[j]-'0';}
+
+	  int Distance4 = 100* b[0]  +10*b[1] +b[2];//lider
+  	  if(Distance4<=20)
+  	  {
+  		  htim1.Instance->CCR1=0;
+  		  htim1.Instance->CCR2=0;
+  	  }
+}
+```
+라이다 센서에서 받은 `RxData_From_Node1[j]`0,1,2byte를<br>
+`int Distance4 = 100* b[0]  +10*b[1] +b[2];`으로 10진수로 변환시켜 distance값을 만들어주고<br>
+20cm보다 아래일때 모터의 움직이지않게 설정했다.
+
+#### test
 
