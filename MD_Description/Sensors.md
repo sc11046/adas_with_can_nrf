@@ -30,7 +30,7 @@ TF-Luna Lidar 센서를 이용해 전방의 장애물을 파악한 후 <br>모�
 
 [사용한 모듈](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/EnvironmentSetting.md#sensor)
 
-<img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/d4a052f5-c18a-40e6-8d86-595c63562a7c" width="300" height="300"/>
+<img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/d4a052f5-c18a-40e6-8d86-595c63562a7c" width="500" height="300"/>
 
 ### 블럭도
 <img width="100%" img src="https://github.com/crasdok/capstone/assets/118472691/2afaa613-30f2-49bb-ad56-e9f89311bec4">
