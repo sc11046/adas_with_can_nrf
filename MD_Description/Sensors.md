@@ -7,8 +7,8 @@
 ###  Overview
 
 TF-Luna Lidar 센서를 이용해 전방의 장애물을 파악한 후 <br>모터를 정지시킴으로써 안전을 확보하기위해 사용했다. 
-
-[사용한 모듈](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/EnvironmentSetting.md#sensor)
+[사용한 모듈]
+(https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/EnvironmentSetting.md#sensor)
 <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/8df420d4-84a8-4380-9213-92c99ed8bbf2" width="500" height="300"/>
 
 
