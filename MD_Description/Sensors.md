@@ -20,6 +20,7 @@ TF-Luna Lidar 센서를 이용해 전방의 장애물을 파악한 후 <br>모�
 
 
 ### networking test
+![라이다-Rx](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/84de82f7-c670-4ec6-ade2-91480391ada0)
 
 ### demo
 
