@@ -278,5 +278,6 @@ void HAL_FDCAN_RxBufferNewMessageCallback(FDCAN_HandleTypeDef *hfdcan)
 ## 통신 테스트
 
 1:3 통신 테스트 동영상 
+![1_3통신-rx](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/8a6d5a59-95c7-49bd-b423-e3fe1993d4a9)
 
 live expreession 영상 
