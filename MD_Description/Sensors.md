@@ -25,6 +25,8 @@ TF-Luna Lidar 센서를 이용해 전방의 장애물을 파악한 후 <br>모�
 <br>
 
 ### demo
+<img src="https://github.com/qkcvb110/Portfolio/assets/121782690/8e93a8c7-8ef5-458a-87c5-c8af9d7982b0" width="500" height="300"/>
+<br>
 
 ## HC-SR04
 
