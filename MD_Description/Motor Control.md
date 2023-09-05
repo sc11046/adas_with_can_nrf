@@ -92,8 +92,9 @@ RxData[2]가 전 후진 모드 설정이다
 뒷모터의 방향들을 선택해주고 송신부에서 CCR값에 맞게 보내도록 수정했고 <br>`RxData[0]`의 값을 CCR값으로 바로 넣어주었다. <br>`if(RxData[0]>=100)`이부분에서 혹시 ccr값이 100이상이 넘게 되면 CCR의 최대값으로 설정했다.<br>`light_sensor();`코드를 넣어주어 지속적으로 조도센서를 이용해 전조등을 설정해두었다.
 
 #### test
-
+<img src="https://github.com/qkcvb110/Portfolio/assets/121782690/c9771932-f7c3-4f74-92a0-41dc8a3f20c6" width="500" height="300"/>
 전후진 테스트 영상 nrf 받는거랑 모터 전후진
+<br>
 
 ### nrf_motor
 
