@@ -222,11 +222,10 @@ void rpi_motor (void){
 
 `if(RxData[3]==1)`으로 차선인식 모드로 설정했다.<br>`while (RxData_From_Node4[0]=='L' or 'R')`동안 반복했다.<br>그리고 `light_sensor();, buzzer();`로 센서를 동작시키고<br>`if (isDataAvailable(2) == 1)`RF통신을 지속적으로 수신하게끔 했다.<br>CCR값과 GPIO핀으로 앞바퀴를 회전을 시켰다.<br>`if(RxData_From_Node4[0]=='G')`'G' 데이터가 오면 다시 바퀴를 중앙으로 되돌린다.<br>
 
-#### test
 
-l,r지속적으로 오는거 올리고 라이브 
 
-인식하는거에 맞춰 방향 돌아가는거 
+#### demo
+![차선인식테스트_AdobeExpress (1)](https://github.com/qkcvb110/Portfolio/assets/121782690/75f805c7-3357-412b-9420-d1ffd46ef9eb)<br>
 
 ### Lidar
 ```c
@@ -248,5 +247,5 @@ void Lidar (void){
 `int Distance4 = 100* b[0]  +10*b[1] +b[2];`으로 10진수로 변환시켜 distance값을 만들어주고<br>
 20cm보다 아래일때 모터의 움직이지않게 설정했다.
 
-#### test
-
+#### demo
+ ![라이다 센서](https://github.com/qkcvb110/Portfolio/assets/121782690/8e93a8c7-8ef5-458a-87c5-c8af9d7982b0)
