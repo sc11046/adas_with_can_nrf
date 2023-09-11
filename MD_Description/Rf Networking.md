@@ -228,8 +228,11 @@ void NRF24_Receive (uint8_t *data)
 >  {NRF24_Receive(RxData)}"를 while안에 배치시켜 지속적으로 수신하게끔 설정했다
 >- 파이프데이터 2번안에 데이터가 수신되었을때  NRF24_Receive(RxData)가 동작되게 설정했다
 
-## 테스트 영상
-(여기에 수요일날 올릴 LIVE EXPRESSION 추가)
-![nrf-rx](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/b76b45c1-343f-49d7-9c34-c52e42e75971)
+## Networking test
+수신부<br>
+![nrf-rx](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/b76b45c1-343f-49d7-9c34-c52e42e75971)<br>
+데이터 값에 핸들과 엑셀레이터 가변저항값을 전송시켜 무선으로 통신이 되도록 만들었다<br>
 
->- 데이터 값에 핸들과 엑셀레이터 가변저항값을 전송시켜 무선으로 통신이 되도록 만들었다
+## demo
+
+![NRF영상_AdobeExpress_AdobeExpress](https://github.com/crasdok/capstone/assets/118472691/0e8da015-865e-457a-8531-79db8783a3ea)
