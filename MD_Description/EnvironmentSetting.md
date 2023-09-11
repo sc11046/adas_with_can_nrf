@@ -67,3 +67,9 @@
 >- 사용 배터리 : 12v 9ah 납배터리,12v 7ah 납배터리
 >- 사용 이유 : 뒷바퀴에는 배터리소모가 크기때문에 9ah 사용, 앞바퀴에는 7ah 사용
 >- <img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/653243bc-5d9e-4333-aaa3-8a1eed251d09" width="200" height="200"/>
+### controler
+>- 사용 부품 : 가변저항, 플라스틱 핸들, 나무 판자, 스위치<br>
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/0a884fa1-ae42-409f-87b6-922bd6c4e2c7)
+![image](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/29577ffa-f6ba-45b6-96b5-4b10a9b8fc22)
+
+
