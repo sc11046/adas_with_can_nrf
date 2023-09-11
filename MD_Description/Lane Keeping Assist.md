@@ -109,7 +109,9 @@ id=0x44 ID는 0x44로 설정 후 데이터 0x4C(L)을 송신
 
 <br/>
 
-## test
-
-송신 되는 live 영상
+## Networking test
+송신부<br>
+![라즈베리 차선인식](https://github.com/qkcvb110/Portfolio/assets/121782690/c3da885e-9eda-4c7c-9015-912b6ff8a5f4)<br>
+수신부<br>
+![차선인식-rx](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/f1e192fe-37f5-41bb-8a3a-4c4195fdf74d)
 
