@@ -89,9 +89,9 @@ RxData[2]가 전 후진 모드 설정이다
 
 뒷모터의 방향들을 선택해주고 송신부에서 CCR값에 맞게 보내도록 수정했고 <br>`RxData[0]`의 값을 CCR값으로 바로 넣어주었다. <br>`if(RxData[0]>=100)`이부분에서 혹시 ccr값이 100이상이 넘게 되면 CCR의 최대값으로 설정했다.<br>`light_sensor();`코드를 넣어주어 지속적으로 조도센서를 이용해 전조등을 설정해두었다.
 
-#### test
+#### demo
 <img src="https://github.com/qkcvb110/Portfolio/assets/121782690/c9771932-f7c3-4f74-92a0-41dc8a3f20c6" width="500" height="300"/>
-전후진 테스트 영상 nrf 받는거랑 모터 전후진
+
 <br>
 
 ### nrf_motor
@@ -152,9 +152,8 @@ void nrf_motor (void){
 
 `if(RxData[3]==0)` 으로 수동제어 모드를 설정했다.<br>이후 `RxData[1]`값을 이용해 앞바퀴의 조향을 설정했다 <br>50보다 작거나 65보다 클때 동안만 `while (RxData[1] > 65 or <50)`while문을 배치하고<br>CCR값과 GPIO핀으로 앞바퀴를 회전을 시켰다.<br>`if(50<=RxData[1]&&RxData[1]<=65)`을 이용해  다시 중앙으로 값이 돌아오게 된다면 <br>회전 방향을 반대로 돌려 바퀴를 중앙으로 위치하게 설정했다.<br>지속적으로 nrf값을 받기위해 `if (isDataAvailable(2) == 1)`문을 추가시켰다 <br>
 
-#### test
-
-nrf 모터 통신 연결이랑 , 앞바퀴 이용한 전후진
+#### demo
+<img src="https://github.com/crasdok/capstone/assets/118472691/4d100a40-bb1d-4ec3-a9a1-659828b5c2a6" width="500" height="300"/>
 
 
 
