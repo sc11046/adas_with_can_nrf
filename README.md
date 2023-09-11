@@ -79,9 +79,16 @@ CanFD통신과 Can통신을 나눠서 사용한 이유는 <br>
 3) [Rf Networking](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Rf%20Networking.md)
 4) [Can Networking](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Can%20Networking.md)
 5) [Motor Control](https://github.com/sc11046/adas_with_can_nrf/blob/main/MD_Description/Motor%20Control.md)
-6) [Demo]
 
-
-
-
-
+## 7.Demo
+### Sensors
+#### 라이다 센서
+<img src="https://github.com/qkcvb110/Portfolio/assets/121782690/8e93a8c7-8ef5-458a-87c5-c8af9d7982b0" width="500" height="300"/> <br>
+#### 초음파 센서
+<img src="https://github.com/qkcvb110/Portfolio/assets/121782690/95b63d8f-ebf4-4e7e-8e17-37cd82e69248" width="500" height="300"/> <br>
+#### 조도 센서
+<img src="https://github.com/crasdok/capstone/assets/118472691/c5a6ff02-2a8e-413e-a355-f17a2049f019" width="500" height="300"/> <br>
+### 차선 인식
+![차선인식1_AdobeExpress_AdobeExpress](https://github.com/crasdok/capstone/assets/118472691/1354c4d5-52e4-4307-b605-7505c764afac) ![차선인식2_AdobeExpress_AdobeExpress](https://github.com/crasdok/capstone/assets/118472691/87baa6f4-f911-4d27-be59-0a3b4d04b713)
+### NRF 무선 통신
+ ![NRF영상_AdobeExpress_AdobeExpress](https://github.com/crasdok/capstone/assets/118472691/0e8da015-865e-457a-8531-79db8783a3ea)
