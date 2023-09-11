@@ -21,12 +21,17 @@ TF-Luna Lidar 센서를 이용해 전방의 장애물을 파악한 후 <br>모�
 
 
 ### networking test
-![라이다-Rx](https://github.com/sc11046/adas_with_can_nrf/assets/121782720/84de82f7-c670-4ec6-ade2-91480391ada0)
+송신부<br>
+<img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/16b8212a-9587-4f62-8fc1-529ca86a5a61" width="700" height="100"/>
+<br>
+수신부<br>
+<img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/84de82f7-c670-4ec6-ade2-91480391ada0" width="700" height="100"/>
 <br>
 
 ### demo
 <img src="https://github.com/qkcvb110/Portfolio/assets/121782690/8e93a8c7-8ef5-458a-87c5-c8af9d7982b0" width="500" height="300"/>
 <br>
+
 
 ## HC-SR04
 
@@ -42,7 +47,11 @@ TF-Luna Lidar 센서를 이용해 전방의 장애물을 파악한 후 <br>모�
 <img width="100%" img src="https://github.com/crasdok/capstone/assets/118472691/2afaa613-30f2-49bb-ad56-e9f89311bec4">
 
 ### networking test
+송신부<br>
+<img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/b6d26867-c123-4270-8fd3-ac7737b5b0c9" width="700" height="100"/>
 
+수신부<br>
+<img src="https://github.com/crasdok/capstone/assets/118472691/6d249b61-b789-4fc5-918b-05c1babc87f1" width="700" height="100"/>
 ### demo
 <img src="https://github.com/qkcvb110/Portfolio/assets/121782690/95b63d8f-ebf4-4e7e-8e17-37cd82e69248" width="500" height="300"/> <br>
 ## SEN030101
@@ -57,6 +66,10 @@ TF-Luna Lidar 센서를 이용해 전방의 장애물을 파악한 후 <br>모�
 
 
 ### networking test
+송신부<br>
+<img src="https://github.com/sc11046/adas_with_can_nrf/assets/121782720/8da1f8d6-a241-4587-8026-d39e9d89b0f5" width="700" height="100"/>
+수신부<br>
+<img src="https://github.com/crasdok/capstone/assets/118472691/f340aa68-cc4f-4742-81eb-9f2f1aee943e" width="700" height="100"/>
 
 
 ### demo
